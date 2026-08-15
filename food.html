@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pick One ❤️</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .food-card {
+            width: 90%;
+            max-width: 900px;
+            padding: 45px 40px 55px;
+            text-align: center;
+        }
+
+        .food-top-icon {
+            font-size: 55px;
+            margin-bottom: 5px;
+        }
+
+        .food-card h1 {
+            font-size: 42px;
+            color: #6f1236;
+            margin: 5px 0;
+        }
+
+        .food-subtitle {
+            font-size: 23px;
+            color: #765063;
+            margin-top: 5px;
+            margin-bottom: 40px;
+        }
+
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .food-option {
+            height: 250px;
+            background: rgba(255, 255, 255, 0.45);
+
+            border: 2px solid #efb8c9;
+            border-radius: 25px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            cursor: pointer;
+            font-family: inherit;
+
+            transition: 0.25s ease;
+        }
+
+        .food-picture {
+            font-size: 90px;
+            line-height: 1;
+            margin-bottom: 25px;
+        }
+
+        .food-name {
+            font-size: 25px;
+            font-weight: bold;
+            color: #57142e;
+        }
+
+        .food-option:hover {
+            transform: translateY(-5px);
+            background: #fff5f8;
+            box-shadow: 0 10px 25px rgba(239, 96, 148, 0.20);
+        }
+
+        @media (max-width: 700px) {
+            .food-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .food-card h1 {
+                font-size: 34px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card food-card">
+
+        <div class="food-top-icon">🍽️✨</div>
+
+        <h1>What are we feeling?</h1>
+
+        <p class="food-subtitle">
+            pick your vibe
+        </p>
+
+        <div class="food-grid">
+
+            <button class="food-option" data-food="Pizza">
+                <div class="food-picture">🍕</div>
+                <div class="food-name">Pizza</div>
+            </button>
+
+            <button class="food-option" data-food="Indian">
+                <div class="food-picture">🍛</div>
+                <div class="food-name">Indian</div>
+            </button>
+
+            <button class="food-option" data-food="Burgers">
+                <div class="food-picture">🍔</div>
+                <div class="food-name">Burgers</div>
+            </button>
+
+            <button class="food-option" data-food="Mediterranean">
+                <div class="food-picture">🍝</div>
+                <div class="food-name">Mediterranean</div>
+            </button>
+
+            <button class="food-option" data-food="Pakistani">
+                <div class="food-picture">🍲</div>
+                <div class="food-name">Pakistani</div>
+            </button>
+
+            <button class="food-option" data-food="Movie">
+                <div class="food-picture">🎬🍿</div>
+                <div class="food-name">Movie</div>
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="food.js"></script>
+
+</body>
+</html>

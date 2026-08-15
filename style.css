@@ -1,0 +1,336 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        135deg,
+        #ffe4ec,
+        #ffd7e4,
+        #fff0f5
+    );
+
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.card {
+    width: 90%;
+    max-width: 650px;
+
+    background: rgba(255, 255, 255, 0.9);
+
+    padding: 60px 40px;
+
+    border-radius: 30px;
+
+    text-align: center;
+
+    box-shadow: 0 20px 50px
+        rgba(120, 50, 80, 0.15);
+}
+
+h1 {
+    color: #8b294d;
+
+    font-size: 34px;
+
+    margin-bottom: 40px;
+}
+
+.buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 30px;
+}
+
+button {
+    border: none;
+
+    padding: 18px 40px;
+
+    border-radius: 40px;
+
+    font-family: Georgia, serif;
+
+    font-size: 18px;
+
+    cursor: pointer;
+}
+
+#yesButton {
+    background: #ef6094;
+
+    color: white;
+
+    box-shadow: 0 8px 20px
+        rgba(239, 96, 148, 0.30);
+}
+
+#noButton {
+    background: #b46bd1;
+
+    color: white;
+}
+
+button:hover {
+    transform: scale(1.06);
+}
+
+.romantic-image {
+    width: 420px;
+    max-width: 90%;
+    height: 260px;
+    margin: 0 auto 25px;
+
+    border-radius: 24px;
+    overflow: hidden;
+
+    box-shadow: 0 10px 30px rgba(120, 50, 80, 0.20);
+}
+
+.romantic-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ---------- YES PAGE ---------- */
+
+.yes-card {
+    max-width: 650px;
+    padding: 70px 50px;
+}
+
+.celebrate {
+    font-size: 75px;
+    margin-bottom: 20px;
+}
+
+.yes-title {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.yes-message {
+    color: #6f4a58;
+    font-size: 21px;
+    margin-bottom: 35px;
+}
+
+.continueButton {
+    background: #ef6094;
+    color: white;
+    padding: 18px 45px;
+    box-shadow: 0 8px 20px rgba(239, 96, 148, 0.30);
+}
+
+/* ---------- DATE PAGE ---------- */
+
+.date-card {
+    max-width: 650px;
+    padding: 55px 50px;
+}
+
+.date-icon {
+    font-size: 60px;
+    margin-bottom: 15px;
+}
+
+.date-card h1 {
+    font-size: 38px;
+    margin-bottom: 35px;
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+
+    color: #8b294d;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    margin-bottom: 10px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+
+    padding: 17px;
+
+    border: 2px solid #e6a9bf;
+
+    border-radius: 14px;
+
+    background: white;
+
+    color: #5e3c49;
+
+    font-size: 18px;
+}
+
+.set-date-button {
+    width: 100%;
+
+    background: #ef6094;
+
+    color: white;
+
+    padding: 18px;
+
+    margin-top: 10px;
+
+    box-shadow: 0 8px 20px
+        rgba(239, 96, 148, 0.30);
+}
+
+/* ---------- FOOD PAGE ---------- */
+
+.food-card {
+    max-width: 700px;
+    padding: 55px 50px;
+}
+
+.food-icon {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.food-card h1 {
+    font-size: 38px;
+    margin-bottom: 8px;
+}
+
+.food-subtitle {
+    font-size: 20px;
+    color: #6f4a58;
+    margin-bottom: 30px;
+}
+
+.food-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.food-option {
+    background: #fff;
+    border: 2px solid #f1c3d3;
+    border-radius: 25px;
+    padding: 0;
+    overflow: hidden;
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.food-option img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.food-option span {
+    display: block;
+    padding: 20px;
+
+    font-size: 25px;
+    font-family: inherit;
+    font-weight: bold;
+
+    color: #6f294d;
+}
+
+.food-option:hover {
+    transform: translateY(-5px);
+    border-color: #ef6094;
+
+    box-shadow: 0 12px 30px rgba(239, 96, 148, 0.20);
+}
+
+@media (max-width: 600px) {
+
+    .food-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .food-option img {
+        height: 190px;
+    }
+}
+
+/* ---------- FINAL PAGE ---------- */
+
+.final-card {
+    max-width: 650px;
+    padding: 65px 50px;
+
+    text-align: center;
+
+    animation: finalPop 0.7s ease;
+}
+
+.final-heart {
+    font-size: 75px;
+
+    margin-bottom: 15px;
+}
+
+.final-card h1 {
+    font-size: 45px;
+
+    margin-bottom: 30px;
+}
+
+.final-card p {
+    font-size: 22px;
+
+    color: #6f4a58;
+
+    margin: 15px 0;
+}
+
+.final-card h2 {
+    color: #8b294d;
+
+    font-size: 25px;
+
+    line-height: 1.5;
+
+    margin-top: 35px;
+}
+
+.final-hearts {
+    font-size: 30px;
+
+    margin-top: 25px;
+}
+
+@keyframes finalPop {
+
+    0% {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
