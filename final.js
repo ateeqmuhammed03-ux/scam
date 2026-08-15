@@ -33,3 +33,15 @@ if (selectedFood) {
     finalChoice.innerHTML =
         "✨ <strong>" + selectedFood + "</strong>";
 }
+
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyKtB9UEiz7kFpXs3dvCVCJN-TmIa_V00xeCA6xgNh03qACW7eKT91bz5tCoVL37nz6TQ/exec";
+
+fetch(WEB_APP_URL, {
+    method: "POST",
+    body: JSON.stringify({
+        response: "YES",
+        date: selectedDate,
+        time: selectedTime,
+        choice: selectedFood
+    })
+});
