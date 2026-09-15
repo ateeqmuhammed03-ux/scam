@@ -4,6 +4,7 @@
 
 const noButton = document.getElementById("noButton");
 const yesButton = document.getElementById("yesButton");
+const buttonsContainer = document.querySelector(".buttons");
 
 let noAttempts = 0;
 
@@ -11,25 +12,46 @@ const MAX_NO_ATTEMPTS = 5;
 
 
 // ========================================
-// RETURN NO TO ORIGINAL POSITION
+// RETURN NO BUTTON BESIDE YES
 // ========================================
 
-function resetNoButton() {
+function returnNoButtonHome() {
 
-    if (!noButton) return;
+    if (!noButton || !buttonsContainer) return;
 
-    // Remove random fixed positioning
+
+    // ========================================
+    // REMOVE MOVING POSITION
+    // ========================================
+
     noButton.style.position = "";
     noButton.style.left = "";
     noButton.style.top = "";
     noButton.style.right = "";
     noButton.style.bottom = "";
+    noButton.style.transform = "";
     noButton.style.zIndex = "";
 
-    // Show final clickable NO
+
+    // ========================================
+    // PUT BUTTON BACK INSIDE ORIGINAL
+    // BUTTON CONTAINER
+    // ========================================
+
+    buttonsContainer.appendChild(noButton);
+
+
+    // ========================================
+    // FINAL NO BUTTON
+    // ========================================
+
     noButton.innerHTML = "NO 😭";
 
-    // Stop running away
+
+    // ========================================
+    // STOP BUTTON FROM RUNNING AWAY
+    // ========================================
+
     noButton.removeEventListener(
         "mouseenter",
         handleMouseEnter
@@ -52,29 +74,20 @@ function moveNoButton() {
 
 
     // ========================================
-    // ALREADY COMPLETED 5 ATTEMPTS
+    // COUNT ATTEMPT
     // ========================================
 
-    if (noAttempts >= MAX_NO_ATTEMPTS) {
-
-        resetNoButton();
-
-        return;
-    }
-
-
-    // Count this attempt
     noAttempts++;
 
 
     // ========================================
-    // AFTER 5TH ATTEMPT
-    // RETURN TO ORIGINAL POSITION
+    // ATTEMPT 5
+    // RETURN BESIDE YES
     // ========================================
 
     if (noAttempts >= MAX_NO_ATTEMPTS) {
 
-        resetNoButton();
+        returnNoButtonHome();
 
         return;
     }
@@ -82,7 +95,7 @@ function moveNoButton() {
 
     // ========================================
     // ATTEMPTS 1 - 4
-    // MOVE RANDOMLY
+    // MOVE BUTTON AROUND SCREEN
     // ========================================
 
     const buttonWidth =
@@ -90,6 +103,7 @@ function moveNoButton() {
 
     const buttonHeight =
         noButton.offsetHeight;
+
 
     const padding = 25;
 
@@ -124,6 +138,10 @@ function moveNoButton() {
         );
 
 
+    // ========================================
+    // MOVE
+    // ========================================
+
     noButton.style.position = "fixed";
 
     noButton.style.left =
@@ -132,12 +150,15 @@ function moveNoButton() {
     noButton.style.top =
         randomY + "px";
 
+    noButton.style.right = "auto";
+    noButton.style.bottom = "auto";
+
     noButton.style.zIndex = "9999";
 }
 
 
 // ========================================
-// DESKTOP
+// DESKTOP MOUSE
 // ========================================
 
 function handleMouseEnter() {
@@ -154,7 +175,7 @@ function handleMouseEnter() {
 
 
 // ========================================
-// MOBILE
+// MOBILE / TOUCH
 // ========================================
 
 function handleTouchStart(event) {
@@ -173,7 +194,7 @@ function handleTouchStart(event) {
 
 
 // ========================================
-// NO BUTTON
+// NO BUTTON EVENTS
 // ========================================
 
 if (noButton) {
@@ -205,8 +226,11 @@ if (noButton) {
         function (event) {
 
 
-            // Don't allow NO before
-            // completing 5 attempts
+            // ========================================
+            // BEFORE 5 ATTEMPTS
+            // DO NOT ALLOW SELECTION
+            // ========================================
+
             if (
                 noAttempts <
                 MAX_NO_ATTEMPTS
@@ -235,7 +259,7 @@ if (noButton) {
 
 
             // ========================================
-            // GO IMMEDIATELY
+            // OPEN NO PAGE IMMEDIATELY
             // ========================================
 
             window.location.href =
@@ -257,6 +281,10 @@ if (yesButton) {
         function () {
 
 
+            // ========================================
+            // SAVE YES
+            // ========================================
+
             localStorage.setItem(
                 "response",
                 "YES"
@@ -264,7 +292,7 @@ if (yesButton) {
 
 
             // ========================================
-            // GO IMMEDIATELY
+            // OPEN YES PAGE IMMEDIATELY
             // ========================================
 
             window.location.href =
