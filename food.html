@@ -3,139 +3,655 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pick One ❤️</title>
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Pick Our Vibe ❤️</title>
+
     <link rel="stylesheet" href="style.css">
 
     <style>
-        .food-card {
-            width: 90%;
-            max-width: 900px;
-            padding: 45px 40px 55px;
-            text-align: center;
-        }
 
-        .food-top-icon {
-            font-size: 55px;
-            margin-bottom: 5px;
-        }
+        /* ========================================
+           PREMIUM FOOD PAGE
+        ======================================== */
 
-        .food-card h1 {
-            font-size: 42px;
-            color: #6f1236;
-            margin: 5px 0;
-        }
-
-        .food-subtitle {
-            font-size: 23px;
-            color: #765063;
-            margin-top: 5px;
-            margin-bottom: 40px;
-        }
-
-        .food-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .food-option {
-            height: 250px;
-            background: rgba(255, 255, 255, 0.45);
-
-            border: 2px solid #efb8c9;
-            border-radius: 25px;
+        body {
+            min-height: 100vh;
 
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
 
+            padding: 40px 20px;
+
+            background:
+                radial-gradient(
+                    circle at top left,
+                    rgba(255, 182, 193, 0.45),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at bottom right,
+                    rgba(218, 112, 147, 0.30),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    135deg,
+                    #fff7f9,
+                    #fdecef,
+                    #f9e3e9
+                );
+
+            box-sizing: border-box;
+        }
+
+
+        /* ========================================
+           MAIN GLASS CARD
+        ======================================== */
+
+        .food-card {
+
+            width: 92%;
+            max-width: 1050px;
+
+            padding: 45px 45px 55px;
+
+            text-align: center;
+
+            background:
+                rgba(255, 255, 255, 0.68);
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            border:
+                1px solid rgba(255, 255, 255, 0.85);
+
+            border-radius: 38px;
+
+            box-shadow:
+                0 25px 70px rgba(100, 20, 55, 0.13),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+        }
+
+
+        /* ========================================
+           TOP ICON
+        ======================================== */
+
+        .food-top-icon {
+
+            font-size: 48px;
+
+            margin-bottom: 8px;
+
+            filter:
+                drop-shadow(
+                    0 5px 8px rgba(150, 40, 80, 0.15)
+                );
+        }
+
+
+        /* ========================================
+           TITLE
+        ======================================== */
+
+        .food-card h1 {
+
+            margin: 4px 0 5px;
+
+            font-size: 44px;
+
+            color: #65152f;
+
+            letter-spacing: -0.5px;
+        }
+
+
+        .food-subtitle {
+
+            margin:
+                5px 0 35px;
+
+            font-size: 20px;
+
+            color: #936377;
+
+            letter-spacing: 0.5px;
+        }
+
+
+        /* ========================================
+           GRID
+        ======================================== */
+
+        .food-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 22px;
+        }
+
+
+        /* ========================================
+           OPTION CARD
+        ======================================== */
+
+        .food-option {
+
+            position: relative;
+
+            min-height: 235px;
+
+            padding: 25px 15px;
+
+            border-radius: 27px;
+
+            border:
+                1.5px solid
+                rgba(201, 94, 130, 0.28);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, 0.88),
+                    rgba(255, 244, 248, 0.68)
+                );
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
             cursor: pointer;
+
             font-family: inherit;
 
-            transition: 0.25s ease;
+            overflow: hidden;
+
+            box-shadow:
+                0 10px 25px
+                rgba(100, 20, 55, 0.07);
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                border-color 0.25s ease,
+                background 0.25s ease;
         }
 
-        .food-picture {
-            font-size: 90px;
-            line-height: 1;
-            margin-bottom: 25px;
+
+        /* Premium shine */
+
+        .food-option::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 120px;
+            height: 250%;
+
+            top: -70%;
+
+            left: -100%;
+
+            transform: rotate(25deg);
+
+            background:
+                linear-gradient(
+                    to right,
+                    transparent,
+                    rgba(255,255,255,0.65),
+                    transparent
+                );
+
+            transition:
+                left 0.6s ease;
         }
 
-        .food-name {
-            font-size: 25px;
-            font-weight: bold;
-            color: #57142e;
+
+        .food-option:hover::before {
+
+            left: 150%;
         }
+
+
+        /* ========================================
+           HOVER
+        ======================================== */
 
         .food-option:hover {
-            transform: translateY(-5px);
-            background: #fff5f8;
-            box-shadow: 0 10px 25px rgba(239, 96, 148, 0.20);
+
+            transform:
+                translateY(-8px)
+                scale(1.015);
+
+            border-color:
+                rgba(190, 67, 111, 0.55);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #ffffff,
+                    #fff0f5
+                );
+
+            box-shadow:
+                0 18px 38px
+                rgba(145, 35, 75, 0.16);
         }
 
-        @media (max-width: 700px) {
+
+        /* ========================================
+           FOOD EMOJI
+        ======================================== */
+
+        .food-picture {
+
+            min-height: 95px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 82px;
+
+            line-height: 1;
+
+            margin-bottom: 20px;
+
+            transition:
+                transform 0.25s ease;
+
+            filter:
+                drop-shadow(
+                    0 8px 8px
+                    rgba(80, 20, 40, 0.12)
+                );
+        }
+
+
+        .food-option:hover
+        .food-picture {
+
+            transform:
+                scale(1.10);
+        }
+
+
+        /* ========================================
+           MULTIPLE FAST FOOD EMOJIS
+        ======================================== */
+
+        .fast-food-picture {
+
+            font-size: 57px;
+
+            letter-spacing: -10px;
+
+            padding-right: 10px;
+        }
+
+
+        /* ========================================
+           MOVIE
+        ======================================== */
+
+        .movie-picture {
+
+            font-size: 65px;
+        }
+
+
+        /* ========================================
+           NAME
+        ======================================== */
+
+        .food-name {
+
+            font-size: 25px;
+
+            font-weight: 700;
+
+            color: #59142c;
+
+            letter-spacing: 0.2px;
+        }
+
+
+        /* ========================================
+           SMALL DESCRIPTION
+        ======================================== */
+
+        .food-description {
+
+            margin-top: 7px;
+
+            font-size: 14px;
+
+            color: #a47788;
+
+            font-weight: 500;
+        }
+
+
+        /* ========================================
+           CLICK EFFECT
+        ======================================== */
+
+        .food-option:active {
+
+            transform:
+                scale(0.97);
+        }
+
+
+        /* ========================================
+           TABLET
+        ======================================== */
+
+        @media
+        (max-width: 800px) {
+
+            .food-card {
+
+                padding:
+                    35px 25px 40px;
+            }
+
             .food-grid {
-                grid-template-columns: repeat(2, 1fr);
+
+                grid-template-columns:
+                    repeat(2, 1fr);
             }
 
             .food-card h1 {
-                font-size: 34px;
+
+                font-size: 36px;
             }
         }
+
+
+        /* ========================================
+           PHONE
+        ======================================== */
+
+        @media
+        (max-width: 520px) {
+
+            body {
+
+                padding:
+                    20px 12px;
+            }
+
+            .food-card {
+
+                width: 100%;
+
+                padding:
+                    30px 15px 35px;
+
+                border-radius: 28px;
+            }
+
+            .food-card h1 {
+
+                font-size: 31px;
+            }
+
+            .food-subtitle {
+
+                font-size: 17px;
+
+                margin-bottom: 25px;
+            }
+
+            .food-grid {
+
+                gap: 13px;
+            }
+
+            .food-option {
+
+                min-height: 180px;
+
+                padding:
+                    18px 8px;
+
+                border-radius: 22px;
+            }
+
+            .food-picture {
+
+                font-size: 62px;
+
+                min-height: 72px;
+
+                margin-bottom: 14px;
+            }
+
+            .fast-food-picture {
+
+                font-size: 40px;
+            }
+
+            .movie-picture {
+
+                font-size: 48px;
+            }
+
+            .food-name {
+
+                font-size: 20px;
+            }
+
+            .food-description {
+
+                font-size: 12px;
+            }
+        }
+
     </style>
+
 </head>
+
 
 <body>
 
+
     <div class="card food-card">
 
-        <div class="food-top-icon">🍽️✨</div>
 
-        <h1>What are we feeling?</h1>
+        <div class="food-top-icon">
+            ✨🍽️✨
+        </div>
+
+
+        <h1>
+            What are we feeling? ❤️
+        </h1>
+
 
         <p class="food-subtitle">
-            pick your vibe
+            Pick your favorite vibe for our date ✨
         </p>
+
+
 
         <div class="food-grid">
 
-            <button class="food-option" data-food="Pizza">
-                <div class="food-picture">🍕</div>
-                <div class="food-name">Pizza</div>
+
+            <!-- PIZZA -->
+
+            <button
+                class="food-option"
+                data-food="Pizza"
+            >
+
+                <div class="food-picture">
+                    🍕
+                </div>
+
+                <div class="food-name">
+                    Pizza
+                </div>
+
+                <div class="food-description">
+                    A classic date favorite
+                </div>
+
             </button>
 
-            <button class="food-option" data-food="Indian">
-                <div class="food-picture">🍛</div>
-                <div class="food-name">Indian</div>
+
+
+            <!-- INDIAN -->
+
+            <button
+                class="food-option"
+                data-food="Indian"
+            >
+
+                <div class="food-picture">
+                    🍛
+                </div>
+
+                <div class="food-name">
+                    Indian
+                </div>
+
+                <div class="food-description">
+                    Spice & everything nice
+                </div>
+
             </button>
 
-            <button class="food-option" data-food="Burgers">
-                <div class="food-picture">🍔</div>
-                <div class="food-name">Burgers</div>
+
+
+            <!-- MEDITERRANEAN -->
+
+            <button
+                class="food-option"
+                data-food="Mediterranean"
+            >
+
+                <div class="food-picture">
+                    🍝
+                </div>
+
+                <div class="food-name">
+                    Mediterranean
+                </div>
+
+                <div class="food-description">
+                    Fresh & delicious
+                </div>
+
             </button>
 
-            <button class="food-option" data-food="Mediterranean">
-                <div class="food-picture">🍝</div>
-                <div class="food-name">Mediterranean</div>
+
+
+            <!-- COFFEE -->
+
+            <button
+                class="food-option"
+                data-food="Coffee"
+            >
+
+                <div class="food-picture">
+                    ☕
+                </div>
+
+                <div class="food-name">
+                    Coffee
+                </div>
+
+                <div class="food-description">
+                    Coffee & conversations
+                </div>
+
             </button>
 
-            <button class="food-option" data-food="Pakistani">
-                <div class="food-picture">🍲</div>
-                <div class="food-name">Pakistani</div>
+
+
+            <!-- FAST FOOD -->
+
+            <button
+                class="food-option"
+                data-food="Fast Food"
+            >
+
+                <div
+                    class="
+                        food-picture
+                        fast-food-picture
+                    "
+                >
+                    🍔 🍟 🥤
+                </div>
+
+                <div class="food-name">
+                    Fast Food
+                </div>
+
+                <div class="food-description">
+                    Burgers • Fries • Drinks
+                </div>
+
             </button>
 
-            <button class="food-option" data-food="Movie">
-                <div class="food-picture">🎬🍿</div>
-                <div class="food-name">Movie</div>
+
+
+            <!-- MOVIE -->
+
+            <button
+                class="food-option"
+                data-food="Movie"
+            >
+
+                <div
+                    class="
+                        food-picture
+                        movie-picture
+                    "
+                >
+                    🎬 🍿
+                </div>
+
+                <div class="food-name">
+                    Movie
+                </div>
+
+                <div class="food-description">
+                    Movie & popcorn
+                </div>
+
             </button>
+
 
         </div>
 
+
     </div>
+
 
     <script src="food.js"></script>
 
+
 </body>
+
 </html>

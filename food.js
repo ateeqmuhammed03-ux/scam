@@ -1,15 +1,51 @@
-const foodOptions = document.querySelectorAll(".food-option");
+// ========================================
+// FOOD / DATE VIBE SELECTION
+// ========================================
 
-foodOptions.forEach(option => {
+const foodOptions =
+    document.querySelectorAll(".food-option");
 
-    option.addEventListener("click", () => {
 
-        const selectedFood = option.dataset.food;
+foodOptions.forEach((option) => {
 
-        localStorage.setItem("selectedFood", selectedFood);
+    option.addEventListener(
+        "click",
+        function () {
 
-        window.location.href = "final.html";
+            const selectedFood =
+                option.dataset.food;
 
-    });
+
+            // ========================================
+            // SAVE SELECTION
+            // ========================================
+
+            localStorage.setItem(
+                "selectedFood",
+                selectedFood
+            );
+
+
+            // ========================================
+            // SMALL PREMIUM CLICK EFFECT
+            // ========================================
+
+            option.style.transform =
+                "scale(0.96)";
+
+
+            // ========================================
+            // GO TO FINAL PAGE
+            // ========================================
+
+            setTimeout(() => {
+
+                window.location.href =
+                    "final.html";
+
+            }, 120);
+
+        }
+    );
 
 });
